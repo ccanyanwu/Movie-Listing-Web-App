@@ -8,20 +8,41 @@ function loadMovies(e){
        //select the main poster image 
       const UIjumbo = document.querySelector('.poster div a'),
             UItitle = document.querySelector('.poster div p') ;
+            //attach the image to the ui
+            UIjumbo.innerHTML = `<img src="https://image.tmdb.org/t/p/w300/${response.results[0].backdrop_path}">`;
+            //condition to check if object has the name or title property 
       if(response.results[0].title){
-        UIjumbo.innerHTML = `<img src="https://image.tmdb.org/t/p/w300/${response.results[0].backdrop_path}">  `;
-        UItitle.innerHTML =`<p style="color:yellow" >${response.results[0].title}</p>`;
+        UItitle.innerHTML =`<p>${response.results[0].title}</p>`;
       } else if(response.results[0].name){
-        UIjumbo.innerHTML = `<img src="https://image.tmdb.org/t/p/original> <p style="color:yellow" >${response.results[0].name}</p> `;
+        UItitle.innerHTML =`<p>${response.results[0].name}</p>`;
       }
+      //slice the response array to get the next 6 trending movies 
+      const sixTrendings = response.results.slice(1,7);
+      //loop through sixTrendings and append selected property values to the DOMContentLoaded
+      sixTrendings.forEach(sixTrending => {
+        //check for the name, title, firstairdate and release date property 
+        
+        const UIothers = document.querySelector('section.others');
+        if(sixTrending.name && sixTrending.first_air_date){
+          UIothers.innerHTML += `
+            <a href="" class="others_content">
+              <img src="https://image.tmdb.org/t/p/w300/${sixTrending.backdrop_path}">
+              <div>
+                <p>${sixTrending.name}</p>
+                <p>Release date :${sixTrending.first_air_date}</p>
+              </div>
+            </a>`
+        } else {
+          UIothers.innerHTML += `
+            <a href="" class="others_content">
+              <img src="https://image.tmdb.org/t/p/w300/${sixTrending.backdrop_path}">
+              <div>
+                <p>${sixTrending.title}</p>
+                <p>Release date :${sixTrending.release_date}</p>
+              </div>
+            </a>`
+        }
+      });
  });
   e.preventDefault();
 } 
-//document.body.innerHTML = `<img src="https://image.tmdb.org/t/p/w300/9Qs9oyn4iE8QtQjGZ0Hp2WyYNXT.jpg">`;
-    // Display file content in the console
-    /*response.results.forEach(result=>{
-      if(result.title){
-      document.querySelector('.poster div a').innerHTML += `<img src="https://image.tmdb.org/t/p/original/oazPqs1z78LcIOFslbKtJLGlueo.jpg"><p>"${result.title}</p>`;
-      //document.querySelector('.others div p').innerText = `${result.release_date}`;
-      }
-    });*/
