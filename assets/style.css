@@ -277,6 +277,7 @@ MEDIA QUERY
   header{
     display :flex ;
     flex-direction :row ;
+    flex-wrap: nowrap;
     justify-content :space-between ;
   }
   header input,
@@ -285,12 +286,13 @@ MEDIA QUERY
     display :none ;
   }
   ul{
+    color:#fff;
   display :flex ;
   flex-direction :row ;
   list-style-type: none;
-  justify-content :fke;
+  justify-content :space-around;
   text-align: center;
-  width :100%;
+  width :50%;
 }
  ul li{
    display :inline-block ;
