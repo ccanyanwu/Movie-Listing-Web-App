@@ -41,6 +41,7 @@ article .searchTerm {
   border-radius: 0.3125rem 0 0 0.3125rem;
   outline: none;
   color: #fff;
+  font-family : lightFont;
 }
 article .searchTerm:focus{
   color: #fff ;
@@ -60,5 +61,56 @@ em.guide{
   color:#777;
   display :block ;
   font-size :0.75rem ;
+  font-family: lightFont ;
   margin: 1rem 5%;
+}
+/*movies*/
+.movies{
+  color :#fff ;
+  display :grid ;
+  grid-gap :1.25rem;
+  grid-template-columns : 1fr;
+  padding: 1rem ;
+  place-items: center ;
+}
+.movies div{
+  background :#333;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.30), 0 11px 8px rgba(0,0,0,0.22);
+  color: #fff 
+}
+.movies div img{
+  border: 2px solid #f2f2f2;
+  display: block ;
+  height :auto ;
+  margin: 1rem auto ;
+  max-width :90%;
+}
+.movies div p{
+  font-family :normalFont ;
+  font-size :1.5rem ;
+  padding: 1.5rem 1rem 0.5rem; 
+  text-align: center ;
+  text-shadow :1px 1px 4px rgba(245, 79, 19, 1) ;
+}
+.movies div p ~ a{
+  background :var(--linearGradient);
+  border :0;
+  border-radius :0.5rem;
+  color:#f2f2f2 ;
+  display:block ;
+  font-family: normalFont;
+  font-size :1rem ;
+  height :3rem ;
+  outline: none ;
+  margin: 2rem auto;
+  padding-top: 0.75rem ;
+  text-align: center ;
+  text-decoration: none ;
+  text-shadow: 1px 0 3px #222, 0 1px 3px #222, -1px 0 3px #222, 0 -1px 3px yellow;
+  width: 40%;
+}
+.movies div p ~ a:hover {
+  background: #000;
+  border :1px solid #fff ;
+  transform: scale(1.4);
 }
