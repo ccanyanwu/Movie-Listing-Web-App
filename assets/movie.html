@@ -5,54 +5,50 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>MOVIE LISTING WEB APP</title>
+  <title>MOVIE LISTING WEB APP-ALL MOVIES</title>
   <meta name="author" content="ccanyanwu">
   <meta name="description" content="A simple web application to get latest movie informations">
   <meta name="keywords" content="MOVIE LISTING WEB APP">
-  <!--css links-->
-  <link rel="stylesheet" href="assets/css/headerFooter.css" title="headerFooter" type="text/css" />
-  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+  <!--css links -->
+  <link rel="stylesheet" href="css/headerFooter.css" title="headerFooter" type="text/css" />
+  <link rel="stylesheet" href="css/movie.css" type="text/css">
 </head>
 
 <body>
-  <!----------
+ <!----------
     header 
   ---------->
   <header>
-    <a href="index.html" ><img src="assets/images/logo.png" alt="logo" /></a>
+    <a href="../index.html" ><img src="images/logo.png" alt="logo" /></a>
     <input type="checkbox" id="active" class="hide">
     <label for="active" class="menu-btn hide"><i class="fas fa-bars"></i></label>
     <!--mobile responsive nav menu-->
     <nav class="wrapper hide">
       <ul>
-        <li><a href="index.html ">Home</a></li>
-        <li><a href="assets/movie.html">Movies</a></li>
+        <li><a href="../index.html ">Home</a></li>
+        <li><a href="movie.html">Movies</a></li>
       </ul>
     </nav>
     <!--desktop nav-->
     <ul class="tab show">
-        <li><a href="index.html ">Home</a></li>
-        <li><a href="assets/movie.html">Movies</a></li>
+        <li><a href="../index.html ">Home</a></li>
+        <li><a href="movie.html">Movies</a></li>
     </ul>
   </header>
-  <!----------
-  Poster movie 
-  ----------->
-  <section class="poster">
-    <h2>TRENDING MOVIES</h2>
-    <div>
-      <a href=""></a>
-      <p></p>
-      <h6>relative </h6>
-    </div>
-  </section>
-  <!----------
-     Others
-  ---------->
-  <section class="others">
-  </section>
+  <!------------
+  Filter section
+  ------------->
+  <h2>Search For Movies</h2>
   
-  <a href="" class="all-movies" >See All movies </a>
+  <article class="filter">
+    <div class="filter-search">
+      <input type="search" class="searchTerm" placeholder="Enter movie genre you want">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+    <em class="guide">*Genres include :action, adventure, animation, comedy, crime, documentary, drama, family, fantasy,history, horror, music, mystery, romance, science fiction,TV Movie, thriller, war and western </em>
+  </article>
   <!----------
      Footer
   ----------->
@@ -66,8 +62,7 @@
   </footer>
   <!--scripts -->
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <script src="assets/js/main.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/move.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>
-

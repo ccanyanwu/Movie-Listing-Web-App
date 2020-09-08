@@ -1,0 +1,64 @@
+/*custom font*/
+@font-face {
+  font-family: personalFont;
+  src: url("../fonts/BrodoThinGrunge.otf")
+}
+@font-face{
+  font-family :normalFont;
+  src: url("../fonts/AlbertusNovaBlack.woff")
+}
+@font-face{
+  font-family: lightFont;
+  src: url("../fonts/AlbertusNovaLight.woff");
+}
+
+/************* 
+filter section
+*************/
+h2{
+  color:var(--headerColor) ;
+  font-family: 'personalFont', sans-serif;
+  font-size :var(--headerSize);
+  letter-spacing: 0.25rem ;
+  margin-bottom:1rem ;
+  margin-top: 3rem ;
+  text-align: center ;
+}
+/*filter input field */
+article .filter-search{
+  width: 90%;
+  position: relative;
+  display: flex;
+  margin: 0 auto ;
+  z-index: -1;
+}
+article .searchTerm {
+  background :transparent ;
+  width: 100%;
+  border: 1px solid #f2f2f2;
+  border-right: none;
+  padding: 0.3125rem;
+  border-radius: 0.3125rem 0 0 0.3125rem;
+  outline: none;
+  color: #fff;
+}
+article .searchTerm:focus{
+  color: #fff ;
+}
+article .searchButton {
+  width: 2.5rem ;
+  height: 3.125rem;
+  border: 1px solid #fff;
+  background: var(--linearGradient) ;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+em.guide{
+  color:#777;
+  display :block ;
+  font-size :0.75rem ;
+  margin: 1rem 5%;
+}
