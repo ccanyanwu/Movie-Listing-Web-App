@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function(){
       document.querySelector('section.movies').innerHTML += `<div>
         <img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt="movie poster"/>
         <p>${movie.title}</p>
-        <a href="" >More Details </a>
+        <a href="" class="movie-details">Movie Details </a>
       </div>`;
      });
     });
@@ -24,20 +24,28 @@ const search = document.querySelector('.searchButton');
 searchInput.addEventListener('keydown', function(){
   document.querySelector('section.movies').innerHTML = ''
   searchValue = searchInput.value.toLowerCase();
-  fetch(`https://api.themoviedb.org/3/search/movie?api_key=08a4a9a41d4afbbd8893e3e58fbfe4b2&query=${searchValue}`)
+  fetch(`https://api.themoviedb.org/3/search/movie?api_key=08a4a9a41d4afbbd8893e3e58fbfe4b2&query=${searchValue}&adult=true`)
     .then(res => res.json())
       .then(
         res =>{
           let allMovies = res.results;
       //loop through the result array to display movies 
       allMovies.forEach(movie =>{
-        
-      document.querySelector('section.movies').innerHTML += `
-      <div>
-        <img src="https://image.tmdb.org/t/p/w300/${movie.poster_path}" alt="movie poster"/>
-        <p>${movie.title}</p>
-        <a href="" >More Details </a>
-      </div>`;
+        if(movie.poster_path){
+            document.querySelector('section.movies').innerHTML += `
+            <div>
+              <img src="https://image.tmdb.org/t/p/w300/${movie.poster_path}" alt="movie poster"/>
+              <p>${movie.title}</p>
+              <a href="" class="movie-details">Movie Details </a>
+            </div>`;
+        } else if(movie.backdrop_path){
+          document.querySelector('section.movies').innerHTML += `
+          <div>
+            <img src="https://image.tmdb.org/t/p/w300/${movie.backdrop_path}" alt="movie poster"/>
+            <p>${movie.title}</p>
+            <a href="" class="movie-details">Movie Details </a>
+          </div>`; 
+        }
         
       })
         } )

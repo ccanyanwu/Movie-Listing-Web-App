@@ -1,0 +1,16 @@
+/*custom font*/
+@font-face {
+  font-family: personalFont;
+  src: url("../fonts/BrodoThinGrunge.otf")
+}
+@font-face{
+  font-family :normalFont;
+  src: url("../fonts/AlbertusNovaBlack.woff")
+}
+@font-face{
+  font-family: lightFont;
+  src: url("../fonts/AlbertusNovaLight.woff");
+}
+*{
+  color :#fff ;
+}
