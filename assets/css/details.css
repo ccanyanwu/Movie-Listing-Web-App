@@ -11,6 +11,44 @@
   font-family: lightFont;
   src: url("../fonts/AlbertusNovaLight.woff");
 }
-*{
-  color :#fff ;
+
+/************
+Movie Details 
+************/
+.movie{
+  display:grid ;
+  grid-template-columns :1fr ;
+  grid-gap: 2rem ;
+  margin-top :3rem ;
+  padding :1rem ;
+}
+.movie img{
+  border :3px solid #fff ;
+  border-radius :0.5rem 0 0.5rem 0;
+  height :auto ;
+  max-width :100%;
+}
+.movie section{
+  border-top: 1px solid #e5e5e5;
+  padding-top: 2rem ;
+}
+.movie section h1{
+  color:var(--headerColor);
+  font-family :personalFont;
+  font-size :3rem ;
+  letter-spacing: 0.25rem ;
+}
+section ul{
+  background :#333 ;
+  color: #fff ;
+  line-height :1.5 ;
+  list-style-type: none ;
+  padding: 0.5rem ;
+}
+section ul li{
+  font-family :normalFont ;
+  margin-bottom :2rem ;
+}
+section ul li span {
+  font-family: lightFont ;
 }

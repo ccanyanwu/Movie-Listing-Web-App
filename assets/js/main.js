@@ -9,7 +9,7 @@ function loadMovies(e){
       const UIjumbo = document.querySelector('.poster div a'),
             UItitle = document.querySelector('.poster div p') ;
             //attach the image to the ui
-            UIjumbo.innerHTML = `<img src="https://image.tmdb.org/t/p/w300/${response.results[0].poster_path}" alt="${response.results[0].poster_path}">`;
+            UIjumbo.innerHTML = `<img src="https://image.tmdb.org/t/p/w300/${response.results[0].poster_path}" alt="${response.results[0].poster_path}" onClick="moviesSelected(${response.results[0].id})">`;
             //condition to check if object has the name or title property 
       if(response.results[0].title){
         UItitle.innerHTML =`<p>${response.results[0].title}</p>`;
@@ -17,6 +17,7 @@ function loadMovies(e){
         UItitle.innerHTML =`<p>${response.results[0].name}</p>`;
       }
       //slice the response array to get the next 6 trending movies 
+    
       const sixTrendings = response.results.slice(1,7);
       //loop through sixTrendings and append selected property values to the DOMContentLoaded
       sixTrendings.forEach(sixTrending => {
@@ -27,16 +28,17 @@ function loadMovies(e){
         //check for the name, title, firstairdate and release date property 
         if(sixTrending.name && sixTrending.first_air_date){
           UIothers.innerHTML += `
-            <a href="" class="others_content">
+            <a  onClick="moviesSelected(${sixTrending.id})" class="others_content">
               <img src="https://image.tmdb.org/t/p/original/${sixTrending.poster_path}">
               <div>
                 <p>${sixTrending.name}</p>
-                <p>Released : ${firstAirDate}</p>
+                <p>Aired : ${firstAirDate}</p>
               </div>
             </a>`
+            
         } else if(sixTrending.title && sixTrending.release_date) {
           UIothers.innerHTML += `
-            <a href="" class="others_content">
+            <a  onClick="moviesSelected(${sixTrending.id})"  class="others_content">
               <img src="https://image.tmdb.org/t/p/original/${sixTrending.poster_path}">
               <div>
                 <p>${sixTrending.title}</p>
@@ -44,10 +46,19 @@ function loadMovies(e){
               </div>
             </a>`
         }
+        
       });
  })
  .catch(err => {
-   alert(err);
+   console.log(err);
  });
+ 
   e.preventDefault();
 } 
+
+//run movie selected function 
+const moviesSelected = movie =>{
+  sessionStorage.setItem('movieId', movie);
+  window.location.href = 'assets/details.html';
+  return false;
+ } 
