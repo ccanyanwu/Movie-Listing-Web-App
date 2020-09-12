@@ -52,3 +52,31 @@ section ul li{
 section ul li span {
   font-family: lightFont ;
 }
+/**********
+MEDIA QUERY 
+**********/
+@media (min-width:48rem){
+  .movie{
+    grid-gap :1rem;
+    grid-template-columns :1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .movie section{
+    border-left: 1px solid #e5e5e5;
+    border-top: 0;
+    padding-left: 1rem;
+  }
+  section ul{
+    background :#000 ;
+  }
+  section ul li{
+    display: block;
+  }
+}
+
+/*larger screens*/
+@media (min-width:62rem){
+  .movie{
+    grid-template-columns :1fr 3fr;
+  }
+}

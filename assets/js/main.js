@@ -21,7 +21,8 @@ function loadMovies(e){
       const sixTrendings = response.results.slice(1,7);
       //loop through sixTrendings and append selected property values to the DOMContentLoaded
       sixTrendings.forEach(sixTrending => {
-        const UIothers = document.querySelector('section.others');
+        const UIothers = document.querySelector('section.others'),
+              UIothersT = document.querySelector('section.others-t');
         //convert dates to month and year 
         let releaseDate = `${new Date(sixTrending.release_date).toLocaleString('default', {month:'long'})} ${new Date(sixTrending.release_date).getFullYear()}` ;
         let firstAirDate = `${new Date(sixTrending.first_air_date).toLocaleString('default', {month:'long'})} ${new Date(sixTrending.first_air_date).getFullYear()}` ;
@@ -39,6 +40,27 @@ function loadMovies(e){
         } else if(sixTrending.title && sixTrending.release_date) {
           UIothers.innerHTML += `
             <a  onClick="moviesSelected(${sixTrending.id})"  class="others_content">
+              <img src="https://image.tmdb.org/t/p/original/${sixTrending.poster_path}">
+              <div>
+                <p>${sixTrending.title}</p>
+                <p>Released : ${releaseDate}</p>
+              </div>
+            </a>`
+        }
+
+        if(sixTrending.name && sixTrending.first_air_date){
+          UIothersT.innerHTML += `
+            <a  onClick="moviesSelected(${sixTrending.id})" class="others_content-t">
+              <img src="https://image.tmdb.org/t/p/original/${sixTrending.poster_path}">
+              <div>
+                <p>${sixTrending.name}</p>
+                <p>Aired : ${firstAirDate}</p>
+              </div>
+            </a>`
+            
+        } else if(sixTrending.title && sixTrending.release_date) {
+          UIothersT.innerHTML += `
+            <a  onClick="moviesSelected(${sixTrending.id})" class="others_content-t">
               <img src="https://image.tmdb.org/t/p/original/${sixTrending.poster_path}">
               <div>
                 <p>${sixTrending.title}</p>

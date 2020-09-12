@@ -97,6 +97,7 @@ em.guide{
   border :0;
   border-radius :0.5rem;
   color:#f2f2f2 ;
+  cursor: pointer;
   display:block ;
   font-family: normalFont;
   font-size :1rem ;
@@ -113,4 +114,35 @@ em.guide{
   background: #000;
   border :1px solid #fff ;
   transform: scale(1.4);
+}
+/**********
+MEDIA QUERY 
+**********/
+@media (min-width:48rem){
+  .movies{
+    grid-gap :2rem;
+    grid-template-columns :1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .movies div{ 
+    height:auto;
+  }
+}
+/*larger screens**/
+@media (min-width:62rem){
+  article .filter-search{
+    width: 50%;
+    display: flex;
+    margin: 0 auto ;
+    z-index: 1;
+  }
+  .movies{
+    grid-template-columns :repeat(3, 1fr);
+  }
+}
+/**laptops**/
+@media (min-width:87rem){
+  .movies{
+    grid-template-columns :repeat(4, 1fr);
+  }
 }
