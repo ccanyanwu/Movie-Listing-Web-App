@@ -112,7 +112,7 @@
   text-align: center ;
   text-decoration: none ;
   text-shadow: 1px 0 3px #222, 0 1px 3px #222, -1px 0 3px #222, 0 -1px 3px yellow;
-  width: 40%;
+  width: 11rem ;
 }
 .all-movies:hover {
   background: #000;
@@ -199,9 +199,5 @@ laptop
     grid-gap:2rem !important;
     place-items: center;
     width: 100%;
-  }
-
-  .all-movies{
-    width: 20%;
   }
 }
